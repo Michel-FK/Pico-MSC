@@ -23,6 +23,13 @@ jobs:
                 output_ext: "*.uf2 *.elf *.elf.map *.hex *.bin *.dis"
                 cmake_args: "-DCMAKE_BUILD_TYPE=Debug"
 
+          - name: Deploy Nightly Development Release
+            uses: pyTooling/Actions/releaser@r0
+            with:
+              token: ${{ secrets.GITHUB_TOKEN }}
+              tag: nightly_build
+              files: build/*.uf2
+
           - name: Upload Build Artifacts
             uses: actions/upload-artifact@v4
             with:

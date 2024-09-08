@@ -1,0 +1,31 @@
+name: Pico MSC Build Action
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+    test_build:
+        name: Build Pico MSC program
+        runs-on: ubuntu-latest
+        permissions:
+            contents: read
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+
+            - name: Build Pico MSC
+              id: build
+              uses: samyarsadat/Pico-Build-Action@v1
+              with:
+                  source_dir: "./"
+                  output_dir: "build"
+                  output_ext: "*.uf2 *.elf *.elf.map *.hex *.bin *.dis"
+                  cmake_args: "-DCMAKE_BUILD_TYPE=Debug"
+
+            - name: Upload Build Artifacts
+              uses: actions/upload-artifact@v4
+              with:
+                  name: workspace_artifacts
+                  path: ${{steps.build.outputs.output_dir}}
+                  if-no-files-found: error

@@ -44,8 +44,6 @@ jobs:
               export PATH=$PATH:/opt/gcc-arm-none-eabi/bin
               export PICO_TOOLCHAIN_PATH=/opt/gcc-arm-none-eabi/bin
               source /etc/profile
-              ls -lrta /opt/gcc-arm-none-eabi/bin
-              arm-none-eabi-c++ --version
 
           - name: Build Project
             working-directory: ${{github.workspace}}/Pico-MSC
@@ -54,6 +52,7 @@ jobs:
             run: |
               echo ${{ github.ref }}
               pwd
+              ls -lR
               mkdir build
               cd build
               cmake .. -Wno-dev -G "Ninja" -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE -DCMAKE_C_COMPILER:FILEPATH=/opt/gcc-arm-none-eabi/bin/arm-none-eabi-gcc -DCMAKE_CXX_COMPILER:FILEPATH=/opt/gcc-arm-none-eabi/bin/arm-none-eabi-g++ -DPICO_TOOLCHAIN_PATH=/opt/gcc-arm-none-eabi/bin -DPICO_SDK_PATH=../../pico-sdk -DCMAKE_BUILD_TYPE=Release -DPICO_BOARD=pico

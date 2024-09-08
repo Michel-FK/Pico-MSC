@@ -63,7 +63,7 @@ MSC_CONST uint8_t msc_disk0[DISK_BLOCK_NUM][DISK_BLOCK_SIZE] =
   // fat_num            = 1; fat12_root_entry_num = 16;
   // sector_per_fat     = 1; sector_per_track = 1; head_num = 1; hidden_sectors = 0;
   // drive_number       = 0x80; media_type = 0xf8; extended_boot_signature = 0x29;
-  // filesystem_type    = "FAT12   "; volume_serial_number = 0x1234; volume_label = "TinyUSB 0  ";
+  // filesystem_type    = "FAT12   "; volume_serial_number = 0x1234; volume_label = "TinyUSB    ";
   // FAT magic code at offset 510-511
   {
       0xEB, 0x3C, 0x90, 0x4D, 0x53, 0x44, 0x4F, 0x53, 0x35, 0x2E, 0x30, 0x00, 0x02, 0x01, 0x01, 0x00,

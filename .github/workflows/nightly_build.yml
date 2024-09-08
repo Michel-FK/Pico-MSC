@@ -30,10 +30,3 @@ jobs:
               token: ${{ secrets.GITHUB_TOKEN }}
               tag: nightly_build
               files: build/*.uf2
-
-          - name: Upload Build Artifacts
-            uses: actions/upload-artifact@v4
-            with:
-                name: workspace_artifacts
-                path: ${{steps.build.outputs.output_dir}}
-                if-no-files-found: error

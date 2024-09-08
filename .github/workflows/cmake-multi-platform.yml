@@ -20,6 +20,8 @@ jobs:
               run: |
                 # this is to fix GIT not liking owner of the checkout dir
                 chown -R $(id -u):$(id -g) $PWD
+                echo $PWD
+                ls -l
 
             - name: Build Pico MSC
               id: build

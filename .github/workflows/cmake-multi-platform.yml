@@ -8,7 +8,8 @@ jobs:
         name: Build Pico MSC Firmware
         runs-on: ubuntu-latest
         permissions:
-          contents: read
+          contents: write
+          repository-projects: write
 
         steps:
           - name: Checkout

@@ -10,9 +10,9 @@ pico_sdk_init()
 add_executable(${PROJECT_NAME})
 
 target_sources(${PROJECT_NAME} PUBLIC
-  ${CMAKE_CURRENT_SOURCE_DIR}/main.c
-  ${CMAKE_CURRENT_SOURCE_DIR}/msc_disk.c
-  ${CMAKE_CURRENT_SOURCE_DIR}/usb_descriptors.c
+  main.c
+  msc_disk.c
+  usb_descriptors.c
 )
 
 #pico_enable_stdio_usb(${PROJECT_NAME} 1)
